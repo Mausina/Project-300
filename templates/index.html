@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DDoS Monitor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>DDoS Monitor</h1>
+    <span id="status" class="status">Loading...</span>
+  </header>
+
+  <!-- big numbers -->
+  <section class="cards">
+    <div class="card"><h3>Requests / s</h3><p id="total">-</p></div>
+    <div class="card"><h3>Allowed to web server</h3><p id="allowed">-</p></div>
+    <div class="card"><h3>SYN packets / s</h3><p id="syn">-</p></div>
+    <div class="card"><h3>Blocked IPs</h3><p id="blocked-count">-</p></div>
+  </section>
+
+  <!-- charts -->
+  <section class="row">
+    <div class="panel">
+      <h2>HTTP requests / s <span class="legend"><i class="orange"></i>total <i class="blue"></i>allowed</span></h2>
+      <canvas id="http-chart" width="600" height="200"></canvas>
+    </div>
+    <div class="panel">
+      <h2>SYN packets / s <span class="legend"><i class="purple"></i>SYN</span></h2>
+      <canvas id="syn-chart" width="600" height="200"></canvas>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="panel">
+      <h2>Alerts</h2>
+      <ul id="alerts"></ul>
+    </div>
+    <div class="panel">
+      <h2>Blocked IPs</h2>
+      <table>
+        <thead><tr><th>IP</th><th>Blocked at</th><th></th></tr></thead>
+        <tbody id="blocked"></tbody>
+      </table>
+      <form id="block-form">
+        <input id="ip-input" placeholder="IP to block, e.g. 192.168.10.77">
+        <button>Block</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="panel">
+      <h2>Top IPs right now</h2>
+      <table>
+        <thead><tr><th>IP</th><th>Requests / s</th></tr></thead>
+        <tbody id="top-ips"></tbody>
+      </table>
+    </div>
+    <div class="panel test">
+      <h2>Test controls (prototype only)</h2>
+      <button onclick="simulate('http_flood')">Simulate HTTP flood</button>
+      <button onclick="simulate('syn_flood')">Simulate SYN flood</button>
+      <button onclick="simulate('stop')">Stop attacks</button>
+    </div>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

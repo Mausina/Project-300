@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f1f3f5;
+  color: #212529;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+h1 { margin: 0; font-size: 26px; }
+h2 { margin: 0 0 12px; font-size: 16px; }
+h3 { margin: 0; font-size: 13px; color: #868e96; font-weight: normal; }
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  background: #868e96;
+}
+.status.normal { background: #2f9e44; }
+.status.attack { background: #e03131; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+}
+.card p { margin: 6px 0 0; font-size: 32px; font-weight: bold; }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.panel {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 0;
+}
+
+canvas { width: 100%; height: 200px; }
+
+.legend { font-size: 12px; font-weight: normal; color: #868e96; margin-left: 10px; }
+.legend i { display: inline-block; width: 12px; height: 3px; margin: 0 4px 3px 8px; vertical-align: middle; }
+.orange { background: #f76707; }
+.blue { background: #1c7ed6; }
+.purple { background: #7048e8; }
+
+ul { list-style: none; margin: 0; padding: 0; max-height: 220px; overflow-y: auto; }
+li { padding: 6px 0; border-bottom: 1px solid #e9ecef; font-size: 14px; }
+li span { color: #868e96; margin-right: 8px; font-family: monospace; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: left; color: #868e96; font-weight: normal; padding: 6px 4px; border-bottom: 1px solid #dee2e6; }
+td { padding: 6px 4px; border-bottom: 1px solid #f1f3f5; font-family: monospace; }
+
+button {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #343a40;
+  color: white;
+  cursor: pointer;
+  margin: 4px 4px 0 0;
+}
+button:hover { background: #495057; }
+td button { padding: 4px 10px; margin: 0; }
+
+form { display: flex; gap: 8px; margin-top: 12px; }
+input { flex: 1; padding: 7px; border: 1px solid #ced4da; border-radius: 6px; }
+
+.test { border: 2px dashed #ced4da; }
+.test p { color: #868e96; font-size: 14px; margin-top: 0; }
+
+/* phones */
+@media (max-width: 800px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .row { grid-template-columns: 1fr; }
+}
